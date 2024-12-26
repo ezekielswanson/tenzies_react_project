@@ -14,16 +14,23 @@ export default function App() {
 
 
 
+    function generateNewDye() {
+        const newDye = [];
+
+        for (let i = 0; i < 10, i++) {
+            const dye = {
+                number: randomNumber,
+                isFrozen: false,
+                id: uuidv4()
+         
+             }
+        }
+    }
 
 
     //Dye object
 
-    const dye = {
-       number: randomNumber,
-       isFrozen: false,
-       id: uuidv4()
-
-    }
+    
 
     /*
 
@@ -34,6 +41,9 @@ export default function App() {
 
     */
 
+
+    /*
+
     setFrozen((prevState) => {
         return !prevState;
     }
@@ -43,6 +53,8 @@ export default function App() {
             return isFrozen === true;
         })
     }
+
+    */
 
 
 //pass in the current dice
