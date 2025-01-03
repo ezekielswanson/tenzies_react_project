@@ -17,13 +17,15 @@ export default function App() {
     function generateNewDye() {
         const newDye = [];
 
-        for (let i = 0; i < 10, i++) {
+        for (let i = 0; i < 10; i++) {
             const dye = {
                 number: randomNumber,
                 isFrozen: false,
                 id: uuidv4()
          
              }
+
+             newDye.push(dye);
         }
     }
 
