@@ -26,3 +26,16 @@ main {
     border-radius: 5px;
     
 }
+
+
+
+
+/**** Child Component ****/
+
+.dye--element {
+    text-align: center;
+    width: 35.84px;
+    height: 35.84px;
+    background-color: #FFFFFF;
+
+}

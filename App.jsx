@@ -9,7 +9,7 @@ import { v4 as uuidv4 } from 'uuid';  // Add this at the top of your file
 
 export default function App() {
 
-    const [die, setDie] = React.useState({})
+    const [die, setDie] = React.useState(generateNewDye())
     const [frozen, setFrozen] = React.useState(false)
 
 
@@ -19,13 +19,14 @@ export default function App() {
 
         for (let i = 0; i < 10; i++) {
             const dye = {
-                number: randomNumber,
+                number:  Math.floor(Math.random() * 6) + 1,
                 isFrozen: false,
                 id: uuidv4()
          
              }
 
              newDye.push(dye);
+             console.log(newDye)
         }
     }
 
@@ -60,19 +61,6 @@ export default function App() {
 
 
 //pass in the current dice
-//
-
-    function generateRandomNumber() {
-        return Math.floor(Math.random() * 6) + 1 
-    }
-
-
-    const randomNumber = generateRandomNumber();
-
-
-
-    console.log(randomNumber)
-
 
     const isFrozen = false
     isFrozen ? true : false;
