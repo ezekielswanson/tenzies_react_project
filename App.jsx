@@ -13,6 +13,23 @@ export default function App() {
     const [frozen, setFrozen] = React.useState(false)
 
 
+    /*
+    function createDyeElements() {
+
+
+    }
+
+      // Create card elements
+    const cardElements = cards.map(card => (
+        <Card 
+            key={card.id}
+            value={card.value}
+            isLocked={card.isLocked}
+            handleClick={() => lockCard(card.id)}
+        />
+    ));
+    */
+
 
     function generateNewDye() {
         const newDye = [];
@@ -26,9 +43,25 @@ export default function App() {
              }
 
              newDye.push(dye);
-             console.log(newDye)
+             //console.log(newDye)
         }
+
+        return newDye;
     }
+
+
+    const dyeElements = die.map(dye => {
+        //genreating the structuer of the dye (compnonent)
+        <Dye 
+            key={dye.id}
+            number={dye.number}
+            //insert isFrozen property here
+
+
+        />
+    })
+
+
 
 
     //Dye object
@@ -109,9 +142,11 @@ input/out put
 
 
     return (
-        <main>
-            <p>{randomNumber}</p>
-        </main>
+        <div className="dye_container">
+            <Dye number={}/>
+
+
+        </div>
     )
     
 

@@ -4,7 +4,7 @@
 
 body {
     margin: 0;
-    background-color: #0B2434;
+    background-color: #F5F5F5;
     padding: 20px;
     height: 100vh;
     display: flex;
@@ -28,8 +28,6 @@ main {
 }
 
 
-
-
 /**** Child Component ****/
 
 .dye--element {
@@ -39,3 +37,19 @@ main {
     background-color: #FFFFFF;
 
 }
+
+
+
+.dye--element span {
+    font-family: Karla;
+    font-size: 20.59px;
+    font-weight: 700;
+    line-height: 24.07px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #2B283A;
+
+}
+
+
