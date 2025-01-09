@@ -9,8 +9,7 @@ import { v4 as uuidv4 } from 'uuid';  // Add this at the top of your file
 
 export default function App() {
 
-    const [die, setDie] = React.useState(generateNewDye())
-    const [frozen, setFrozen] = React.useState(false)
+    const [die, setDie] = React.useState(generateNewDye());
 
 
     /*
@@ -63,6 +62,26 @@ export default function App() {
 
 
 
+    //pass in the current dice
+
+    /*
+    purpose create function that updates isFrozen on clikc
+    input = id, and it's a list so find where it's at the list 
+    ouput = changing isFrozen = true
+
+
+
+
+
+    */
+
+    function freezeDye(id) {
+        setDie(prevDye => 
+
+    }
+
+    const isFrozen = false
+    isFrozen ? true : false;
 
     //Dye object
 
@@ -93,10 +112,7 @@ export default function App() {
     */
 
 
-//pass in the current dice
-
-    const isFrozen = false
-    isFrozen ? true : false;
+/
 
 
 
