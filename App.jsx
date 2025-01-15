@@ -55,6 +55,10 @@ export default function App() {
             key={dye.id}
             number={dye.number}
             //insert isFrozen property here
+            /*
+              const isFrozen = false
+              isFrozen ? true : false;
+            */
 
 
         />
@@ -65,23 +69,41 @@ export default function App() {
     //pass in the current dice
 
     /*
-    purpose create function that updates isFrozen on clikc
+    purpose create function that updates isFrozen on click
     input = id, and it's a list so find where it's at the list 
     ouput = changing isFrozen = true
 
 
-
-
-
-    */
+    -Logic sticking poiont
 
     function freezeDye(id) {
         setDie(prevDye => 
 
     }
 
-    const isFrozen = false
-    isFrozen ? true : false;
+    prevDye = array
+    loop through each dye element in the array
+    see if it's the dye elemtn selected (id)
+    set isFrozen = true
+
+    For each die:
+   ├─ Is this the die we clicked? (id matches?)
+   │  ├─ Yes → Return die with flipped frozen state
+   │  └─ No → Return die unchanged
+
+
+
+
+
+
+
+    */
+   function freezeDye(id) {
+    setDie(prevDye => prevDye.map(dye => {
+        return dye.id === id ? {...dye, isFrozen: !dye.isFrozen} : dye
+    }))
+}
+  
 
     //Dye object
 
@@ -112,7 +134,6 @@ export default function App() {
     */
 
 
-/
 
 
 
