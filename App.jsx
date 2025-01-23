@@ -1,7 +1,6 @@
-
 import React from 'react'
 
-import { v4 as uuidv4 } from 'uuid';  // Add this at the top of your file
+import { v4 as uuidv4 } from 'uuid'; 
 
 
 
@@ -11,23 +10,6 @@ export default function App() {
 
     const [die, setDie] = React.useState(generateNewDye());
 
-
-    /*
-    function createDyeElements() {
-
-
-    }
-
-      // Create card elements
-    const cardElements = cards.map(card => (
-        <Card 
-            key={card.id}
-            value={card.value}
-            isLocked={card.isLocked}
-            handleClick={() => lockCard(card.id)}
-        />
-    ));
-    */
 
 
     function generateNewDye() {
@@ -48,131 +30,26 @@ export default function App() {
         return newDye;
     }
 
-
+   //Dye component
     const dyeElements = die.map(dye => {
-        //genreating the structuer of the dye (compnonent)
         <Dye 
             key={dye.id}
             number={dye.number}
-            //insert isFrozen property here
-            /*
-              const isFrozen = false
-              isFrozen ? true : false;
-            */
-
-
+            onClick={() => freezeDye(dye.id)}
         />
     })
 
 
-
-    //pass in the current dice
-
-    /*
-    purpose create function that updates isFrozen on click
-    input = id, and it's a list so find where it's at the list 
-    ouput = changing isFrozen = true
-
-
-    -Logic sticking poiont
-
-    function freezeDye(id) {
-        setDie(prevDye => 
-
-    }
-
-    prevDye = array
-    loop through each dye element in the array
-    see if it's the dye elemtn selected (id)
-    set isFrozen = true
-
-    For each die:
-   ├─ Is this the die we clicked? (id matches?)
-   │  ├─ Yes → Return die with flipped frozen state
-   │  └─ No → Return die unchanged
-
-
-
-
-
-
-
-    */
    function freezeDye(id) {
     setDie(prevDye => prevDye.map(dye => {
-        return dye.id === id ? {...dye, isFrozen: !dye.isFrozen} : dye
+        if (dye.id === id) {
+            return {...dye, isFrozen: !dye.isFrozen}
+        } else {
+            return dye
+        }
     }))
 }
   
-
-    //Dye object
-
-    
-
-    /*
-
-       setIsGoingOut((prevState) => {
-            return !prevState;
-        });
-
-
-    */
-
-
-    /*
-
-    setFrozen((prevState) => {
-        return !prevState;
-    }
-
-    function freezeDye(id, isFrozen) {
-        button.addEventListener("click", () => {
-            return isFrozen === true;
-        })
-    }
-
-    */
-
-
-
-
-
-
-
-
-/*
-input/out put
--do we need to pass data in?
-    no
-
--function returning something?
-    -yes
-    -randomly generate number
-
--
-
-
-
-
-*/
-
-/*
-    function rollDice() {
-        
-    }
-
-*/
-    /*
-
-       const [die, setDie] = React.useState({
-        number: "",
-        isFronze: false
-    })
-
-
-
-    */
-
 
 
 
