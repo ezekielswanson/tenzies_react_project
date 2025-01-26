@@ -53,13 +53,9 @@ export default function App() {
 
 
 
-
-
     return (
         <div className="dye_container">
-            <Dye number={}/>
-
-
+            {dyeElements}
         </div>
     )
     

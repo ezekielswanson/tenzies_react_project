@@ -3,13 +3,17 @@
 
 import React from "react"
 export default function Dye(props) {
-    <div className="dye--element">
-        return (
+    return (
+        
+        <div className="dye--element"
+            onClick={props.onClick} 
+        >
             <span>{props.number}</span>
-        )
-    </div>
-}
+        </div>
 
+    )
+
+}
 
 
 
