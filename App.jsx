@@ -1,10 +1,6 @@
 import React from 'react'
-
 import { v4 as uuidv4 } from 'uuid'; 
-
-
-
-
+import Dye from './Die';
 
 export default function App() {
 
@@ -12,6 +8,7 @@ export default function App() {
 
 
 
+    //create structure of the object/element
     function generateNewDye() {
         const newDye = [];
 
@@ -31,15 +28,21 @@ export default function App() {
     }
 
    //Dye component
+   //on component in app.jsx we're creatinng compnent and grabbing dye
+   //props from the dye object
+   //create the component with it's properties
     const dyeElements = die.map(dye => {
-        <Dye 
+        return <Dye 
             key={dye.id}
             number={dye.number}
+            isHeld ={dye.isFrozen}
             onClick={() => freezeDye(dye.id)}
         />
     })
 
+    //Create functions to handle the logic
 
+    //Handles frozen state on click
    function freezeDye(id) {
     setDie(prevDye => prevDye.map(dye => {
         if (dye.id === id) {
@@ -53,6 +56,7 @@ export default function App() {
 
 
 
+//render dye elements pass props if needed.
     return (
         <div className="dye_container">
             {dyeElements}
