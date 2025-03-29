@@ -5,6 +5,27 @@ import Dye from './Die';
 export default function App() {
 
     const [die, setDie] = React.useState(generateNewDye());
+    cosnt [gameWinner, setGameWinner] = React.useState(false);
+
+
+
+    /*
+
+    -what's involvied in the game won?
+
+    -all numbers in dye are the same
+
+    data?
+    -each dye 
+    -dye number
+    -are they all the same?
+
+
+
+
+
+
+    */
 
 
 
@@ -51,6 +72,34 @@ export default function App() {
             return dye
         }
     }))
+}
+
+
+/*
+What’s the purpose of the function?
+    -check if all state values are = if it it the game is won
+What’s the input?
+    -die (state)
+    -isHeld state/condition "is it frozen"
+What’s the output?
+    -display game won
+
+Process
+
+-write out the steps one by one
+
+
+Questions 
+    -Do I pass in the entire dye element to get access to all fo the props
+    or, pass in each individually prop?
+
+
+*/
+
+
+
+function gameWon(die) {
+
 }
   
 
