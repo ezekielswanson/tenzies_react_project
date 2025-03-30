@@ -5,7 +5,7 @@ import Dye from './Die';
 export default function App() {
 
     const [die, setDie] = React.useState(generateNewDye());
-    cosnt [gameWinner, setGameWinner] = React.useState(false);
+    const [gameWinner, setGameWinner] = React.useState(false);
 
 
 
@@ -32,13 +32,13 @@ export default function App() {
     /*
 
 
-    What’s the purpose of the function?
+    What's the purpose of the function?
         -determine game winner by 
           checkibg if all dye are equal
-    What’s the input?
+    What's the input?
         -dye (the dye is held in the array so pass in the array)
         -access it's number
-    What’s the output?
+    What's the output?
         -all dye frozen
         -pop in that says Game Winner!
 
@@ -57,15 +57,19 @@ export default function App() {
     */
 
 
+
     //Game winner function
+    /*
+    // Commented out due to duplicate variable declaration
     const gameWinner = die.every(dye =>
         //access the dye number and compare to the 
         //dye number of the first dye object in the the array
-        dye.number === die[0].number && dye.isHeld
+        dye.number === die[0].number && dye.isFrozen
 
         //return a value set by default
 
     )
+    */
 
 
     //create structure of the object/element
@@ -95,7 +99,7 @@ export default function App() {
         return <Dye 
             key={dye.id}
             number={dye.number}
-            isHeld ={dye.isFrozen}
+            isFrozen={dye.isFrozen}
             onClick={() => freezeDye(dye.id)}
         />
     })
@@ -115,12 +119,12 @@ export default function App() {
 
 
 /*
-What’s the purpose of the function?
+What's the purpose of the function?
     -check if all state values are = if it it the game is won
-What’s the input?
+What's the input?
     -die (state)
-    -isHeld state/condition "is it frozen"
-What’s the output?
+    -isFrozen state/condition "is it frozen"
+What's the output?
     -display game won
 
 Process
@@ -140,9 +144,11 @@ Questions
 
 //render dye elements pass props if needed.
     return (
-        <div className="dye_container">
-            {dyeElements}
-        </div>
+        <main>
+            <div className="dice-container">
+                {dyeElements}
+            </div>
+        </main>
     )
     
 

@@ -27,6 +27,14 @@ main {
     
 }
 
+/* Container for dice */
+.dice-container {
+    display: grid;
+    grid-template: auto auto / repeat(5, 1fr);
+    gap: 20px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
 /**** Child Component ****/
 
@@ -35,10 +43,13 @@ main {
     width: 35.84px;
     height: 35.84px;
     background-color: #FFFFFF;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
 }
-
-
 
 .dye--element span {
     font-family: Karla;
@@ -52,7 +63,6 @@ main {
     background-color: #FFFFFF;
 
 }
-
 
 .die--held {
     background-color: #59E391;
