@@ -24,7 +24,45 @@ main {
     background-color: #F5F5F5;
     height: 100%;
     border-radius: 5px;
-    
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Typography */
+h1 {
+    font-size: 40px;
+    margin: 0;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-family: 'Karla', sans-serif;
+}
+
+/* Roll button */
+.roll-button {
+    background-color: #5035FF;
+    color: white;
+    font-size: 1.2rem;
+    font-family: 'Karla', sans-serif;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 40px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.roll-button:focus {
+    outline: none;
+}
+
+.roll-button:active {
+    box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
 
 /* Container for dice */

@@ -6,10 +6,131 @@ export default function App() {
 
     const [die, setDie] = React.useState(generateNewDye());
     const [gameWinner, setGameWinner] = React.useState(false);
+    
 
+
+    //create structure of the object/element
+    function generateNewDye() {
+        const newDye = [];
+
+        for (let i = 0; i < 10; i++) {
+            const dye = {
+                number:  Math.floor(Math.random() * 6) + 1,
+                isFrozen: false,
+                id: uuidv4()
+         
+             }
+
+             newDye.push(dye);
+             //console.log(newDye)
+        }
+
+        return newDye;
+    }
+
+
+
+   //Dye component
+   //on component in app.jsx we're creatinng compnent and grabbing dye
+   //props from the dye object
+   //create the component with it's properties
+    const dyeElements = die.map(dye => {
+        return <Dye 
+            key={dye.id}
+            number={dye.number}
+            isFrozen={dye.isFrozen}
+            onClick={() => freezeDye(dye.id)}
+        />
+    })
 
 
     /*
+    What's the purpose of the function?
+        -when a user clicks roll, new numbers are generated for each new dice.
+    What's the input?
+        -die state
+            -this is an array
+        -number value
+        -isFrozen property to see if the dice is frozen
+    What's the output?
+        -all dice generated with new numbers
+
+    Function Logic steps?
+        -pass in dye as param
+        -set function
+        -two things - id of dice & the isFrozen property of the previous state
+        -need to generate a new number here number={dye.number}
+        -then call pass rollNewDice() on the button as onclick function
+
+
+
+
+    Questions?
+        -can I use the setDye to only udpate the the number value
+        of the dye?
+        - or can I use the generateNewDye() 
+
+
+     */
+
+
+
+    function rollNewDice() {
+        setDie(prevDye => prevDye.map(dye => {
+            if (dye.isFrozen === true) {
+                return {
+                    ...dye
+                }
+            } else {
+                return {
+                    ...dye,
+                    number: Math.floor(Math.random() * 6) + 1
+                }
+            }
+        }))
+    }
+    
+
+
+
+
+    //Create functions to handle the logic
+
+    //Handles frozen state on click
+   function freezeDye(id) {
+    setDie(prevDye => prevDye.map(dye => {
+        if (dye.id === id) {
+            return {...dye, isFrozen: !dye.isFrozen}
+        } else {
+            return dye
+        }
+    }))
+}
+
+
+/*
+What's the purpose of the function?
+    -check if all state values are = if it it the game is won
+What's the input?
+    -die (state)
+    -isFrozen state/condition "is it frozen"
+What's the output?
+    -display game won
+
+Process
+
+-write out the steps one by one
+
+
+Questions 
+    -Do I pass in the entire dye element to get access to all fo the props
+    or, pass in each individually prop?
+
+
+*/
+
+
+/*
 
     -what's involvied in the game won?
 
@@ -57,11 +178,10 @@ export default function App() {
     */
 
 
-
-    //Game winner function
     /*
+         //Game winner function
     // Commented out due to duplicate variable declaration
-    const gameWinner = die.every(dye =>
+    const wonGame = die.every(dye =>
         //access the dye number and compare to the 
         //dye number of the first dye object in the the array
         dye.number === die[0].number && dye.isFrozen
@@ -69,89 +189,24 @@ export default function App() {
         //return a value set by default
 
     )
+
     */
-
-
-    //create structure of the object/element
-    function generateNewDye() {
-        const newDye = [];
-
-        for (let i = 0; i < 10; i++) {
-            const dye = {
-                number:  Math.floor(Math.random() * 6) + 1,
-                isFrozen: false,
-                id: uuidv4()
-         
-             }
-
-             newDye.push(dye);
-             //console.log(newDye)
-        }
-
-        return newDye;
-    }
-
-   //Dye component
-   //on component in app.jsx we're creatinng compnent and grabbing dye
-   //props from the dye object
-   //create the component with it's properties
-    const dyeElements = die.map(dye => {
-        return <Dye 
-            key={dye.id}
-            number={dye.number}
-            isFrozen={dye.isFrozen}
-            onClick={() => freezeDye(dye.id)}
-        />
-    })
-
-    //Create functions to handle the logic
-
-    //Handles frozen state on click
-   function freezeDye(id) {
-    setDie(prevDye => prevDye.map(dye => {
-        if (dye.id === id) {
-            return {...dye, isFrozen: !dye.isFrozen}
-        } else {
-            return dye
-        }
-    }))
-}
-
-
-/*
-What's the purpose of the function?
-    -check if all state values are = if it it the game is won
-What's the input?
-    -die (state)
-    -isFrozen state/condition "is it frozen"
-What's the output?
-    -display game won
-
-Process
-
--write out the steps one by one
-
-
-Questions 
-    -Do I pass in the entire dye element to get access to all fo the props
-    or, pass in each individually prop?
-
-
-*/
-
-
 
 
 //render dye elements pass props if needed.
     return (
         <main>
+            <h1>Tenzies</h1>
+            <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
             <div className="dice-container">
                 {dyeElements}
             </div>
+            <button className="roll-button" onClick={rollNewDice}>Roll</button>
         </main>
     )
     
 
 }
+
 
 
