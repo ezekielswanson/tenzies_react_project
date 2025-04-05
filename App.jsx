@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'; 
 import Dye from './Die';
 
@@ -42,36 +42,6 @@ export default function App() {
             onClick={() => freezeDye(dye.id)}
         />
     })
-
-
-    /*
-    What's the purpose of the function?
-        -when a user clicks roll, new numbers are generated for each new dice.
-    What's the input?
-        -die state
-            -this is an array
-        -number value
-        -isFrozen property to see if the dice is frozen
-    What's the output?
-        -all dice generated with new numbers
-
-    Function Logic steps?
-        -pass in dye as param
-        -set function
-        -two things - id of dice & the isFrozen property of the previous state
-        -need to generate a new number here number={dye.number}
-        -then call pass rollNewDice() on the button as onclick function
-
-
-
-
-    Questions?
-        -can I use the setDye to only udpate the the number value
-        of the dye?
-        - or can I use the generateNewDye() 
-
-
-     */
 
 
 
@@ -174,30 +144,51 @@ Questions
     -Questions
         - my assumption is since I already have a dye state 
         stucture, and compponent created, I'm passing in dye as paramter
+        -when does the function need to be invoked?
+
+        -user rolls dice
+        -click to freeze all dice until the same #
+        -one all dye are the same, game's won
 
     */
 
 
-    /*
-         //Game winner function
-    // Commented out due to duplicate variable declaration
+    
+
+
+    
+    //Game winner function
     const wonGame = die.every(dye =>
         //access the dye number and compare to the 
         //dye number of the first dye object in the the array
+
         dye.number === die[0].number && dye.isFrozen
+
 
         //return a value set by default
 
     )
 
-    */
+
+
+    React.useEffect(() => {
+        if (wonGame) {
+            setGameWinner(true);
+        }
+    }, [die]);
+
+
+
+
+    
 
 
 //render dye elements pass props if needed.
     return (
         <main>
             <h1>Tenzies</h1>
-            <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+            {gameWinner && <h2>You won!</h2>}
+            {!gameWinner && <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>}
             <div className="dice-container">
                 {dyeElements}
             </div>
