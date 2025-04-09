@@ -156,7 +156,7 @@ Questions
     
 
 
-    
+
     //Game winner function
     const wonGame = die.every(dye =>
         //access the dye number and compare to the 
@@ -182,27 +182,29 @@ Questions
     questions
         -
     process
+        -select p element from DOM
+        -hide the text if game is won
 
     */
 
 
-    function hideAdditionalTitleText() {
-        
+    function hideParagraphText() {
+        const p = document.querySelector("p");
+        if (gameWinner) {
+            p.style.display = "none";
+        }
     }
-
-
 
 
     React.useEffect(() => {
         if (wonGame) {
             setGameWinner(true);
+            hideParagraphText();
         }
     }, [die]);
 
+   
 
-
-
-    
 
 
 //render dye elements pass props if needed.
@@ -210,7 +212,9 @@ Questions
         <main>
             <h1>Tenzies</h1>
             {gameWinner && <h2>You won!</h2>}
-            <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+            <p>
+                Roll until all dice are the same. Click each die to freeze it at its current value between rolls.
+            </p>
             <div className="dice-container">
                 {dyeElements}
             </div>
