@@ -170,6 +170,28 @@ Questions
     )
 
 
+    //Hide die
+
+    /*
+    purpose
+        -hide the p text when game is won
+    data/input
+      -game state is the game won - true
+    ouput   
+        -hidden p texst
+    questions
+        -
+    process
+
+    */
+
+
+    function hideAdditionalTitleText() {
+        
+    }
+
+
+
 
     React.useEffect(() => {
         if (wonGame) {
@@ -188,7 +210,7 @@ Questions
         <main>
             <h1>Tenzies</h1>
             {gameWinner && <h2>You won!</h2>}
-            {!gameWinner && <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>}
+            <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
             <div className="dice-container">
                 {dyeElements}
             </div>
