@@ -1,13 +1,14 @@
 {
   "name": "Scrim-s06j1hk",
   "description": "https://scrimba.com/the-frontend-developer-career-path-c0j/~0y4a",
+  "homepage": "https://ezekielswanson.github.io/tenzies_react_project/",
   "scripts": {
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "nanoid": "5.0.7",
